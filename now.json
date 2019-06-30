@@ -2,14 +2,14 @@
   "version": 2,
   "name": "asperitas",
   "env": {
-    "DATABASE_URL": "@database-url"
+    "DATABASE_URL": "@my-mongodb-uri"
   },
   "builds": [
     { "src": "client/package.json", "use": "@now/static-build" },
     { "src": "server/index.js", "use": "@now/node-server@0.4.24" }
   ],
   "routes": [
-    { "src": "/api/?(.*)", "dest": "/server"},
+    { "src": "/api/?(.*)", "dest": "/server" },
     { "src": "/static/(.*)", "dest": "/client/static/$1" },
     { "src": "/.*", "dest": "/client" }
   ]
